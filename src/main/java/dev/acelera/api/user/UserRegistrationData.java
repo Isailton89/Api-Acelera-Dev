@@ -1,4 +1,4 @@
-package dev.acelera.api.client;
+package dev.acelera.api.user;
 
 public record UserRegistrationData(
     String nome,

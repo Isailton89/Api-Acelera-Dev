@@ -1,6 +1,6 @@
 package dev.acelera.api.controller;
 
-import dev.acelera.api.client.UserRegistrationData;
+import dev.acelera.api.user.UserRegistrationData;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
