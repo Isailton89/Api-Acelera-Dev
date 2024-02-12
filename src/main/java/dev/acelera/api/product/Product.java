@@ -20,10 +20,12 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String codigo;
+    private String nome;
     private BigDecimal preco;
 
     public Product(ProductResgistrationData data) {
         this.codigo = data.codigo();
+        this.nome = data.nome();
         this.preco = data.preco();
     }
 }
