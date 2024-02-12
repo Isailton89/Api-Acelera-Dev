@@ -1,18 +1,30 @@
 package dev.acelera.api.controller;
 
+import dev.acelera.api.user.User;
+import dev.acelera.api.user.UserDataList;
 import dev.acelera.api.user.UserRegistrationData;
+import dev.acelera.api.user.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("user")
 public class UserController {
+
+    @Autowired
+    private UserRepository repository;
+
     @PostMapping
+    @Transactional
     public void register(@RequestBody UserRegistrationData data) {
-        System.out.println(data);
+        repository.save(new User(data));
     }
 
     @GetMapping
-    public String teste(){
-        return "teste user";
+    public List<UserDataList> list(){
+        return repository.findAll().stream().map(UserDataList::new).toList();
     }
 }

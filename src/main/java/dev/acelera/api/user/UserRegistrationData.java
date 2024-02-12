@@ -1,9 +1,11 @@
 package dev.acelera.api.user;
 
+import java.util.Date;
+
 public record UserRegistrationData(
     String nome,
-    String dataDeNascimento,
-    String cpf,
-    String cep
+    Date dataAniversario,
+    int cpf,
+    int cep
 ) {
 }
