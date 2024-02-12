@@ -4,8 +4,8 @@ import java.util.Date;
 
 public record UserRegistrationData(
     String nome,
-    Date dataAniversario,
-    int cpf,
+    Date dataNascimento,
+    String cpf,
     int cep
 ) {
 }

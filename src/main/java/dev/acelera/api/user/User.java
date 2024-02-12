@@ -1,10 +1,12 @@
 package dev.acelera.api.user;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -20,13 +22,15 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private Date dataAniversario;
-    private int cpf;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    private Date dataNascimento;
+    private String cpf;
     private int cep;
 
     public User(UserRegistrationData data) {
         this.nome = data.nome();
-        this.dataAniversario = data.dataAniversario();
+        this.dataNascimento = data.dataNascimento();
         this.cpf = data.cpf();
         this.cep = data.cep();
     }
