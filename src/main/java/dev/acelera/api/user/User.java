@@ -1,12 +1,11 @@
 package dev.acelera.api.user;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
+
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -32,5 +31,20 @@ public class User {
         this.dataNascimento = data.dataNascimento();
         this.cpf = data.cpf();
         this.cep = data.cep();
+    }
+
+    public void updateData(UserUpdateData data) {
+        if (data.nome() != null) {
+            this.nome = data.nome();
+        }
+        if (data.dataNascimento() != null) {
+            this.dataNascimento = data.dataNascimento();
+        }
+        if (data.cpf() != null) {
+            this.cpf = data.cpf();
+        }
+        if (data.cep() != 0) {
+            this.cep = data.cep();
+        }
     }
 }

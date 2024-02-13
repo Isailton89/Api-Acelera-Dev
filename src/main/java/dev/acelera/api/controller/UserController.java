@@ -1,9 +1,6 @@
 package dev.acelera.api.controller;
 
-import dev.acelera.api.user.User;
-import dev.acelera.api.user.UserDataList;
-import dev.acelera.api.user.UserRegistrationData;
-import dev.acelera.api.user.UserRepository;
+import dev.acelera.api.user.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -26,5 +23,12 @@ public class UserController {
     @GetMapping
     public List<UserDataList> list(){
         return repository.findAll().stream().map(UserDataList::new).toList();
+    }
+
+    @PutMapping
+    @Transactional
+    public void updateUser(@RequestBody UserUpdateData data) {
+        var user = repository.getReferenceById(data.id());
+        user.updateData(data);
     }
 }
