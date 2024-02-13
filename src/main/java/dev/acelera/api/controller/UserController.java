@@ -31,4 +31,10 @@ public class UserController {
         var user = repository.getReferenceById(data.id());
         user.updateData(data);
     }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void delete(@PathVariable Long id) {
+        repository.deleteById(id);
+    }
 }

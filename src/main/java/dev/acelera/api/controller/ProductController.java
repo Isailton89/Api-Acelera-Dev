@@ -31,4 +31,10 @@ public class ProductController {
         var product = repository.getReferenceById(data.id());
         product.updateData(data);
     }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void delete(@PathVariable Long id) {
+        repository.deleteById(id);
+    }
 }
