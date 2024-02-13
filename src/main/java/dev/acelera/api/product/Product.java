@@ -28,4 +28,16 @@ public class Product {
         this.nome = data.nome();
         this.preco = data.preco();
     }
+
+    public void updateData(ProductUpdateData data) {
+        if (data.codigo() != null) {
+            this.codigo = data.codigo();
+        }
+        if (data.nome() != null) {
+            this.nome = data.nome();
+        }
+        if (data.preco() != null) {
+            this.preco = data.preco();
+        }
+    }
 }
