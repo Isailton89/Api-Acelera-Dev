@@ -1,6 +1,7 @@
 package dev.acelera.api.controller;
 
 import dev.acelera.api.user.*;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +17,7 @@ public class UserController {
 
     @PostMapping
     @Transactional
-    public void register(@RequestBody UserRegistrationData data) {
+    public void register(@RequestBody @Valid UserRegistrationData data) {
         repository.save(new User(data));
     }
 
