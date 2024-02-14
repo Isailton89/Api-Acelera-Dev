@@ -1,10 +1,8 @@
 package dev.acelera.api.sales;
 
+import dev.acelera.api.product.Product;
 import jakarta.persistence.*;
 import lombok.*;
-import org.apache.poi.ss.usermodel.Cell;
-
-import java.util.Date;
 
 @Table(name = "sales_mades")
 @Entity(name = "Sale")
@@ -26,4 +24,8 @@ public class Sale {
     private String qntProduComprados;
     @Column(name = "data_da_compra")
     private String dataCompra;
+
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
 }
