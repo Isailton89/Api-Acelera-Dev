@@ -1,5 +1,6 @@
 package dev.acelera.api.productStock;
 
+import dev.acelera.api.sales.Sale;
 import jakarta.persistence.*;
 import lombok.*;
 

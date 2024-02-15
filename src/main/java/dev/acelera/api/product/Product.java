@@ -1,5 +1,6 @@
 package dev.acelera.api.product;
 
+import dev.acelera.api.sales.Sale;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -7,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Table(name = "products")
 @Entity(name = "Product")
@@ -22,6 +24,9 @@ public class Product {
     private String codigo;
     private String nome;
     private BigDecimal preco;
+
+    @OneToMany(mappedBy = "product")
+    private List<Sale> sales;
 
     public Product(ProductResgistrationData data) {
         this.codigo = data.codigo();

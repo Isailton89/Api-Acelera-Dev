@@ -1,5 +1,6 @@
 package dev.acelera.api.user;
 
+import dev.acelera.api.sales.Sale;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -9,6 +10,7 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 @Table(name = "users")
 @Entity(name = "User")
@@ -25,6 +27,9 @@ public class User {
     private String dataNascimento;
     private String cpf;
     private int cep;
+
+    @OneToMany(mappedBy = "user")
+    private List<Sale> sales;
 
     public User(UserRegistrationData data) {
         this.nome = data.nome();

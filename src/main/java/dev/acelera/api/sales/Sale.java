@@ -1,6 +1,7 @@
 package dev.acelera.api.sales;
 
 import dev.acelera.api.product.Product;
+import dev.acelera.api.user.User;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -26,6 +27,8 @@ public class Sale {
     private String dataCompra;
 
     @ManyToOne
-    @JoinColumn(name = "product_id")
+    private User user;
+
+    @ManyToOne
     private Product product;
 }
