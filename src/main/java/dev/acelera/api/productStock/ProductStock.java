@@ -20,8 +20,8 @@ public class ProductStock {
     @Column(name = "data_da_compra")
     private String dataDaCompra;
 
-    public ProductStock(ProductStockRegistrationData data) {
-        this.idProduto = data.idProduto();
+    public ProductStock(Long idProduto, ProductStockRegistrationData data) {
+        this.idProduto = idProduto;
         this.quantidade = data.quantidade();
         this.dataDaCompra = data.dataDaCompra();
     }
