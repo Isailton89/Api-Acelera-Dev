@@ -1,1 +1,0 @@
-ALTER TABLE users MODIFY data_nascimento VARCHAR(100);
